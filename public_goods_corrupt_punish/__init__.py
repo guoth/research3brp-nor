@@ -112,6 +112,7 @@ class Player(BasePlayer):
     reaction_time = models.FloatField(initial=0)
     estimate_reaction_time = models.FloatField(initial=0)
     page_load_time = models.FloatField(initial=0)
+    research_result_time = models.FloatField(initial=0)
     
     questionnaire_start_time = models.FloatField(initial=0)
     questionnaire_duration = models.FloatField(initial=0)
@@ -165,10 +166,15 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
     contribution_decision_priority = models.IntegerField(
-        label='3. 在决定向公共池投入多少代币时，我会优先考虑：',
+        label='4. 在决定向公共池投入多少代币时，我会优先考虑：',
         choices=[1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal,
     )
+
+    question3_1 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7])
+    question3_2 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7])
+    question3_3 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7])
+    question3_4 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7])
 
     @property
     def role(self):
@@ -397,7 +403,7 @@ class QuestionnairePart1(Page):
 
 class QuestionnairePart2(Page):
     form_model = 'player'
-    form_fields = ['is_real_player', 'careful_completion_check', 'contribution_decision_priority']
+    form_fields = ['is_real_player', 'careful_completion_check', 'question3_1', 'question3_2', 'question3_3', 'question3_4', 'contribution_decision_priority']
 
     @staticmethod
     def is_displayed(player: Player):
@@ -424,6 +430,15 @@ class ThankYou(Page):
     pass
 
 
+class Researchresult(Page):
+    form_model = 'player'
+    form_fields = ['research_result_time']
+
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == 2
+
+
 class LoadingNextTask(Page):
     pass
 
@@ -436,6 +451,7 @@ page_sequence = [
     ComprehensionWaitPage,
     MatchingWaitPage,
     MatchingSuccess,
+    Researchresult,
     LoadingNextTask,
     EstimateOthers,
     Contribute,

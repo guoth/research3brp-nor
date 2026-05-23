@@ -40,8 +40,79 @@
 {{ formfield 'is_real_player' }}
 {{ formfield 'careful_completion_check' }}
 
+<div class="mb-3" style="margin-top: 30px;">
+    <label class="form-label" style="margin-bottom: 10px !important; font-weight: normal; line-height: 1.6;">
+        3. 以下是刚才实验中您已观看过的此前相同任务中的研究结果：大多数被试都会向公共池投入至少7个代币。同时，大多数被试认为，人们应该向公共池投入8个以上代币。<br>
+        请回忆您在实验中首次看到上述结果信息时的感受，对以下陈述进行评价：
+    </label>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle"
+            style="background-color: white; border: 1px solid #dee2e6;">
+            <thead class="table-light" style="font-size: 14px; font-weight: normal;">
+                <tr>
+                    <th style="width: 5%; white-space: nowrap; border-right: none;"></th>
+                    <th style="width: 39%; border-left: none;"></th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">非常不同意</th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">不同意</th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">有点不同意</th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">中立</th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">有点同意</th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">同意</th>
+                    <th style="width: 8%; font-weight: normal; white-space: nowrap;">非常同意</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>(1)</td>
+                    <td class="text-start">我认为上述信息是真实的。</td>
+                    <td><input type="radio" name="question3_1" value="1" required></td>
+                    <td><input type="radio" name="question3_1" value="2" required></td>
+                    <td><input type="radio" name="question3_1" value="3" required></td>
+                    <td><input type="radio" name="question3_1" value="4" required></td>
+                    <td><input type="radio" name="question3_1" value="5" required></td>
+                    <td><input type="radio" name="question3_1" value="6" required></td>
+                    <td><input type="radio" name="question3_1" value="7" required></td>
+                </tr>
+                <tr>
+                    <td>(2)</td>
+                    <td class="text-start">我认为上述信息是可信的。</td>
+                    <td><input type="radio" name="question3_2" value="1" required></td>
+                    <td><input type="radio" name="question3_2" value="2" required></td>
+                    <td><input type="radio" name="question3_2" value="3" required></td>
+                    <td><input type="radio" name="question3_2" value="4" required></td>
+                    <td><input type="radio" name="question3_2" value="5" required></td>
+                    <td><input type="radio" name="question3_2" value="6" required></td>
+                    <td><input type="radio" name="question3_2" value="7" required></td>
+                </tr>
+                <tr>
+                    <td>(3)</td>
+                    <td class="text-start">我认为上述信息表达清晰明确。</td>
+                    <td><input type="radio" name="question3_3" value="1" required></td>
+                    <td><input type="radio" name="question3_3" value="2" required></td>
+                    <td><input type="radio" name="question3_3" value="3" required></td>
+                    <td><input type="radio" name="question3_3" value="4" required></td>
+                    <td><input type="radio" name="question3_3" value="5" required></td>
+                    <td><input type="radio" name="question3_3" value="6" required></td>
+                    <td><input type="radio" name="question3_3" value="7" required></td>
+                </tr>
+                <tr>
+                    <td>(4)</td>
+                    <td class="text-start">我能够轻松理解上述信息。</td>
+                    <td><input type="radio" name="question3_4" value="1" required></td>
+                    <td><input type="radio" name="question3_4" value="2" required></td>
+                    <td><input type="radio" name="question3_4" value="3" required></td>
+                    <td><input type="radio" name="question3_4" value="4" required></td>
+                    <td><input type="radio" name="question3_4" value="5" required></td>
+                    <td><input type="radio" name="question3_4" value="6" required></td>
+                    <td><input type="radio" name="question3_4" value="7" required></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <div class="mb-3 _formfield">
-    <label class="form-label" style="margin-bottom: 10px !important;">3. 在第二轮中，决定向公共池投入多少代币时，我优先考虑了：</label>
+    <label class="form-label" style="margin-bottom: 10px !important;">4. 在第二轮中，决定向公共池投入多少代币时，我优先考虑了：</label>
 
     <div
         style="display: flex; justify-content: space-between; position: relative; max-width: 650px; margin-top: 15px; padding-left: 10px;">

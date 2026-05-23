@@ -1,0 +1,80 @@
+{{ extends "global/Page.html" }}
+{{ block title }}研究结果{{ endblock }}
+{{ block content }}
+
+<div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
+    <p style="font-size: 20px; line-height: 1.8; margin-bottom: 40px;">
+        以下展示了此前相同任务中的研究结果，请阅读后点击“下一步”继续。
+    </p>
+    <p style="font-size: 20px; line-height: 1.8;">
+        大多数被试都会向公共池投入至少7个代币。
+        <br>
+        同时，大多数被试认为，人们应该向公共池投入 8 个以上代币。
+    </p>
+</div>
+
+<input type="hidden" name="research_result_time" id="research_result_time" value="0" />
+
+<button class="otree-btn-next btn btn-primary" type="submit" id="next-btn" disabled>下一步 (10s)</button>
+
+{{ endblock }}
+
+{{ block styles }}
+<style>
+    .otree-title,
+    h1 {
+        visibility: hidden !important;
+    }
+
+    body {
+        margin-top: -30px !important;
+    }
+
+    .container {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+
+    .otree-btn-next {
+        float: right !important;
+        margin-top: 15px !important;
+        transition: all 0.3s ease;
+    }
+
+    .btn-disabled-effect {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+</style>
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    let waitTime = 10;
+    const btn = document.getElementById('next-btn');
+    btn.classList.add('btn-disabled-effect');
+
+    const interval = setInterval(() => {
+        waitTime--;
+        if (waitTime > 0) {
+            btn.innerText = `下一步 (${waitTime}s)`;
+        } else {
+            clearInterval(interval);
+            btn.innerText = '下一步';
+            btn.disabled = false;
+            btn.classList.remove('btn-disabled-effect');
+            // 可以添加一个提示可以点击的特效
+            btn.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 200);
+        }
+    }, 1000);
+    const startTime = Date.now();
+    btn.addEventListener('click', function () {
+        document.getElementById('research_result_time').value = (Date.now() - startTime) / 1000;
+    });
+</script>
+{{ endblock }}
